@@ -1,26 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a8bc7137-08f8-4379-ac46-a9b6d0b09222" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/pastaDigest/Arq1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pastaDigest/Arq10" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pastaDigest/Arq11" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pastaDigest/Arq12" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pastaDigest/Arq2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pastaDigest/Arq3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pastaDigest/Arq4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pastaDigest/Arq5" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pastaDigest/Arq6" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pastaDigest/Arq7" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pastaDigest/Arq8" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pastaDigest/Arq9" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ARQ1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ARQ2.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ARQ3.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/list_digest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/list_digest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DigestCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DigestCalculator.java" afterDir="false" />
-    </list>
+    <list default="true" id="a8bc7137-08f8-4379-ac46-a9b6d0b09222" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
