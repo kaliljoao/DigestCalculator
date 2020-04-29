@@ -2,11 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a8bc7137-08f8-4379-ac46-a9b6d0b09222" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pastaDigest/Arq1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pastaDigest/Arq10" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pastaDigest/Arq11" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pastaDigest/Arq12" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pastaDigest/Arq2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pastaDigest/Arq3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pastaDigest/Arq4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pastaDigest/Arq5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pastaDigest/Arq6" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pastaDigest/Arq7" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pastaDigest/Arq8" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pastaDigest/Arq9" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Checker.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ARQ1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ARQ2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ARQ3.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/list_digest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/list_digest.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DigestCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DigestCalculator.java" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,11 +46,36 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/pastaDigest" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/pastaDigest" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.DigestCalculator">
     <configuration name="DigestCalculator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="DigestCalculator" />
+      <module name="DisgestCalculator" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main" />
       <module name="DisgestCalculator" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -44,6 +84,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.DigestCalculator" />
+        <item itemvalue="Application.main" />
       </list>
     </recent_temporary>
   </component>
@@ -59,6 +100,17 @@
       <updated>1587838213982</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="WindowStateProjectService">
     <state width="1638" height="257" key="GridCell.Tab.0.bottom" timestamp="1588028775074">
