@@ -16,6 +16,7 @@ public class DigestCalculator {
 
     private static ArrayList<String> pathFiles; // path da pasta com os arquivos a serem processados
     private static ArrayList<String[]> listDigests; //lista de String[] para que possa ler o arquivo em partes
+    private static ArrayList<String[]> listDigestsCopyToWrite = new ArrayList<String[]>();
     private static MessageDigest myDigest;
     private static Path myPath;
 
@@ -158,7 +159,7 @@ public class DigestCalculator {
             novoDigest[original.length] = alg;
             novoDigest[original.length + 1] = digest; // adiciona nova informacao
 
-            listDigests.set(j,novoDigest);
+            listDigestsCopyToWrite.add(novoDigest);
 
             return;
         }
@@ -166,14 +167,14 @@ public class DigestCalculator {
         novaInf[0] = name;
         novaInf[1] = alg;
         novaInf[2] = digest;
-
-        listDigests.add(novaInf);
+        listDigestsCopyToWrite.add(novaInf);
+        return;
     }
 
 
     public static void Verify() throws Exception {
 
-        System.out.println("\n------------------------- INICIANDO A VERIFICACAO DOS ARQUIVOS ----------------------------");
+        System.out.println("\n------------------------- INICIANDO A VERIFICACAO DOS ARQUIVOS ----------------------------\n");
 
         boolean notfound=false;
         Path file ;
@@ -192,7 +193,7 @@ public class DigestCalculator {
             alg = myDigest.getAlgorithm();
             status = FileStatus(fileName, fileDigest);
 
-            System.out.printf("Nome: %s\nAlgoritmo: %s\nDigest: %s\nStatus: %s\n\n", fileName, alg, fileDigest, status.toString());
+            System.out.printf("%s %s %s %s\n", fileName, alg, fileDigest, status.toString());
 
             if (status == Status.NOT_FOUND) {
                 notfound = true;
@@ -201,28 +202,32 @@ public class DigestCalculator {
 
         }
 
-        if(notfound)
+        if(notfound) // se algum digest não foi achado na lista de digests
             EscreverNoArq();
 
 
-        System.out.println("------------------------- TERMINANDO A VERIFICACAO DOS ARQUIVOS ----------------------------");
+        System.out.println("\n------------------------- TERMINANDO A VERIFICACAO DOS ARQUIVOS ----------------------------");
 
     }
 
     public static void EscreverNoArq() throws IOException {
+        try {
+            File f = new File(String.valueOf(myPath));
 
-        StringBuilder text = new StringBuilder();
-
-        for (int i = 0; i < listDigests.size(); i++) {
-            String[] info = listDigests.get(i);
-
-            for (int j = 0; j < info.length; j++)
-                text.append(info[j] + " ");
-
-            text.append("\n");
+            StringBuilder text = new StringBuilder();
+            for (int i = 0; i < listDigestsCopyToWrite.size(); i++) {
+                String[] info = listDigestsCopyToWrite.get(i);
+                  for (int j = 0; j < info.length; j++)
+                    text.append(info[j] + " ");
+                text.append("\n");
+            }
+            FileWriter writer = new FileWriter(f, false);
+            writer.write(text.toString());
+            writer.close();
         }
-
-        Files.write(myPath, text.toString().getBytes(), StandardOpenOption.WRITE);
+        catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 
@@ -234,7 +239,7 @@ public class DigestCalculator {
 //        }
 
 
-        TypeDigest("SHA1");
+        TypeDigest("SHA-256");
         setPath("list_digest.txt");
         setFileList("pastaDigest");
 
