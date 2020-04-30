@@ -8,6 +8,7 @@
       <change beforePath="$PROJECT_DIR$/out/production/DisgestCalculator/DigestCalculator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DisgestCalculator/DigestCalculator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DigestCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DigestCalculator.java" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,6 +42,18 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/pastaDigest" />
     </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="RunManager" selected="Application.DigestCalculator">
     <configuration name="DigestCalculator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -166,15 +179,6 @@
     <state x="221" y="100" key="SettingsEditor/0.23.1440.877/-1280.-19.1280.1001@0.23.1440.877" timestamp="1587838950104" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/DigestCalculator.java</url>
-          <line>205</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="listDigests.get(8)" />

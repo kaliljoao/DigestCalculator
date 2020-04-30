@@ -1,15 +1,19 @@
+/*
+ INF1416 - Segurança da Informação - Trabalho 2
+ Jéssica Pereira  - 1711179
+ João Pedro Kalil - 1711183
+  
+ */
+
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class DigestCalculator {
@@ -28,51 +32,38 @@ public class DigestCalculator {
         COLLISION,
     }
 
-    public static void TypeDigest(String type) throws NoSuchAlgorithmException { // processa Tipo_Digest podendo ser MD5 ou SHA1
-        myDigest = MessageDigest.getInstance(type);
-        System.out.println(myDigest.getProvider());
-        System.out.println("-------------------------------------------------------");
+    public static void Tipo_do_Digest (String tipo) throws NoSuchAlgorithmException {
+        myDigest = MessageDigest.getInstance(tipo);
+        System.out.println("\nProvider: " + myDigest.getProvider());
     }
 
-    public static void setPath(String pathArqListaDigest) throws IOException { // processa Caminho_ArqListaDigest
+    public static void Set_Path( String pathArqListaDigest) throws IOException {
+
         myPath = Paths.get(pathArqListaDigest);
         listDigests = new ArrayList<String[]>();
 
         List<String> lines = Files.readAllLines(myPath);
-        System.out.println("\n------------------------ Cada linha do arquivo: ------------------------");
 
-        if (lines.size() > 0) {
-            for (String line : lines) {
+        if (lines.size() > 0)
+            for (String line : lines)
                 listDigests.add(line.split(" "));
-            }
-
-            listDigests.forEach(lineInformation -> {
-                System.out.println(Arrays.toString(lineInformation));
-            });
-        }
-        System.out.println("-------------------------------------------------------");
 
         Files.readAllLines(myPath).forEach(lineInformation -> {
             listDigests.add(lineInformation.split(" "));
         });
-
-
     }
 
-    public static void setFileList(String Path) { // processa Caminho_da_Pasta_dos_Arquivos
+    public static void Set_Arquivos (String Path) {
+
         pathFiles = new ArrayList<String>();
         final File folder = new File(Path);
-        System.out.println("\n---------------------- PATHS ----------------------");
-        for (final File file : folder.listFiles()) {
+
+        for (final File file : folder.listFiles())
             pathFiles.add(file.getPath());
-
-            System.out.println(file.getPath());
-        }
-        System.out.println("-------------------------------------------------------");
-
     }
 
-    private static String DigestValueFromFile(Path filePath) throws IOException {
+    private static String Valor_Digest (Path filePath) throws IOException {
+
         if (Files.exists(filePath) == false) {
             System.err.print("FILE DOESN'T EXIST, EXITING \n");
             System.exit(2);
@@ -90,48 +81,58 @@ public class DigestCalculator {
         return digestHexa;
     }
 
-    private static String DigestFromDigestsFile(int index) throws Exception {
-        String[] information = listDigests.get(index);
-        for (int i = 1; i < information.length; i = i + 2) {
-            String type = information[i];
+    private static String DigestFromDigestsFile (int index) throws Exception {
+
+        String[] info = listDigests.get(index);
+
+        for (int i = 1; i < info.length; i = i + 2) {
+            String type = info[i];
 
             if (type.equalsIgnoreCase(myDigest.getAlgorithm()))
-                return information[i + 1];
+                return info[i + 1];
         }
 
         return null;
     }
 
-    private static Status FileStatus(String fileName, String fileDigest) throws Exception {
+    private static Status Status (String nome, String digest) throws Exception {
+
         Status status = Status.UNKNOW;
 
         // Confere digest com os arquivos passados
-        for (int i = 0; i < pathFiles.size(); i++) {
+        for (int i = 0; i < pathFiles.size(); i++)
+        {
+
             Path pathArq = Paths.get(pathFiles.get(i));
             String arqName = pathArq.getFileName().toString();
 
-            if (fileName.equals(arqName)) // ignora o proprio arquivo
+            if (nome.equals(arqName)) // ignora o proprio arquivo
                 continue;
 
-            if (fileDigest.equalsIgnoreCase(DigestValueFromFile(pathArq))) {
+            if (digest.equalsIgnoreCase(Valor_Digest(pathArq)))
                 status = Status.COLLISION;
-            }
+
         }
 
         // Confere digest com lista de digests
-        for (int i = 0; i < listDigests.size(); i++) {
-            String nameFileFromDigestsFile = listDigests.get(i)[0];
-            String digestFromFileOfDigestsFile = DigestFromDigestsFile(i);
+        for (int i = 0; i < listDigests.size(); i++)
+        {
+            String nomeArq = listDigests.get(i)[0];
+            String digestArq = DigestFromDigestsFile(i);
 
-            if (fileName.equals(nameFileFromDigestsFile) && status == Status.UNKNOW) {
-                if (fileDigest.equals(digestFromFileOfDigestsFile)) {
+            if (nome.equals(nomeArq) && status == Status.UNKNOW)
+            {
+                if (digest.equals(digestArq))
                     status = Status.OK;
-                } else if (digestFromFileOfDigestsFile != null) {
+
+                else if (digestArq != null)
                     status = Status.NOT_OK;
-                }
-            } else if (fileDigest.equalsIgnoreCase(digestFromFileOfDigestsFile)) {
-                status = Status.COLLISION;
+
             }
+
+            else if (digest.equalsIgnoreCase(digestArq))
+                status = Status.COLLISION;
+
         }
 
         if (status == Status.UNKNOW)
@@ -171,7 +172,6 @@ public class DigestCalculator {
         return;
     }
 
-
     public static void Verify() throws Exception {
 
         System.out.println("\n------------------------- INICIANDO A VERIFICACAO DOS ARQUIVOS ----------------------------\n");
@@ -183,15 +183,14 @@ public class DigestCalculator {
         String alg;
         Status status ;
 
-        for (int i = 0; i < pathFiles.size(); i++) {
-
-
+        for (int i = 0; i < pathFiles.size(); i++)
+        {
 
             file = Paths.get(pathFiles.get(i));
             fileName = file.getFileName().toString();
-            fileDigest = DigestValueFromFile(file);
+            fileDigest = Valor_Digest(file);
             alg = myDigest.getAlgorithm();
-            status = FileStatus(fileName, fileDigest);
+            status = Status(fileName, fileDigest);
 
             System.out.printf("%s %s %s %s\n", fileName, alg, fileDigest, status.toString());
 
@@ -205,12 +204,12 @@ public class DigestCalculator {
         if(notfound) // se algum digest não foi achado na lista de digests
             EscreverNoArq();
 
-
         System.out.println("\n------------------------- TERMINANDO A VERIFICACAO DOS ARQUIVOS ----------------------------");
 
     }
 
     public static void EscreverNoArq() throws IOException {
+
         try {
             File f = new File(String.valueOf(myPath));
 
@@ -230,18 +229,16 @@ public class DigestCalculator {
         }
     }
 
-
     public static void main(String[] args) throws Exception {
 
-//        if(args.length < 3) {
-//            System.err.println("DigestCalculator Tipo_Digest Caminho_ArqListaDigest Caminho_da_Pasta_dos_Arquivos");
-//            System.exit(1);
-//        }
+        if(args.length < 3) {
+            System.err.println("DigestCalculator Tipo_Digest Caminho_ArqListaDigest Caminho_da_Pasta_dos_Arquivos");
+            System.exit(1);
+        }
 
-
-        TypeDigest("SHA-256");
-        setPath("list_digest.txt");
-        setFileList("pastaDigest");
+        Tipo_do_Digest(args[0]);
+        Set_Path(args[1]);
+        Set_Arquivos(args[2]);
 
         Verify();
 
